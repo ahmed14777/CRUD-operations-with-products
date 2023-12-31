@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>CRUDS OPERATIONS WITH PRODUCTS</title>
+  </head>
+  <body> 
+    <div id="input-con" class="container mt-4">
+      <span id="item-update-id"></span>
+
+      <!-- Modified: Added Bootstrap grid system for better responsiveness -->
+      <div class="row">
+        <div class="col-md-6">
+          <label for="product-name">Product Name</label>
+          <input
+            class="form-control mt-2"
+            type="text"
+            id="product-name"
+            autofocus
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="product-price">Product Price</label>
+          <input class="form-control mt-2" type="number" id="product-price" />
+        </div>
+      </div>
+
+      <!-- Modified: Added Bootstrap grid system for better responsiveness -->
+      <div class="row">
+        <div class="col-md-6">
+          <label for="product-category">Product Category</label>
+          <input class="form-control mt-2" type="text" id="product-category" />
+        </div>
+        <div class="col-md-6">
+          <label for="product-desc">Product Description</label>
+          <textarea class="form-control mt-2" id="product-desc"></textarea>
+        </div>
+      </div>
+
+      <br />
+
+      <button
+        id="bt-add"
+        onclick="addProduct()"
+        class="btn btn-outline-primary"
+      >
+        Add Product
+      </button>
+      <button
+        onclick="updated()"
+        style="display: none"
+        class="btn btn-outline-warning"
+        id="btn-update"
+      >
+        Update
+      </button>
+
+      <div class="mt-3">
+        <!-- Modified: Added Bootstrap spacing utilities -->
+        <input
+          onkeyup="searchElement(this.value)"
+          class="form-control"
+          placeholder="Search..."
+          type="search"
+        />
+      </div>
+
+      <div class="mt-3">
+        <table class="table table-striped text-center">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Product Name</th>
+              <th>Product Price</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Delete</th>
+              <th>Update</th>
+            </tr>
+          </thead>
+          <tbody id="myTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/indx.js"></script>
+  </body>
+</html>

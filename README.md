@@ -1,2 +1,4 @@
-# CRUD-operations-with-products
-modified the convert the code of beginner developers to be more clean and responsive the solve the problems to the operation update 
+# CRUD OPERATIONS WITH PRODUCTS
+
+THIS IS A PROJECT to improve the code and convert the code of beginner front-end developer to be more clean and readable
+and to help him to resolve a problem with the update operation
