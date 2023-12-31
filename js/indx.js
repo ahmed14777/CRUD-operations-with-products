@@ -105,28 +105,43 @@ function deleteProduct(index) {
 
 // *Function to search for a product by name //* step S search
 function searchElement(term) {
-  let cartona = "";
+  // Select the tbody element
+  const tbody = document.getElementById("myTable");
+
+  // Clear existing content
+  tbody.innerHTML = "";
+
   for (let i = 0; i < productList.length; i++) {
-    if (
-      productList[i].Name.toLowerCase().includes(term.toLocaleLowerCase()) ==
-      true
-    ) {
-      cartona += ` <tr>
-          <td>${productList[i].Name}</td>
-          <td>${productList[i].price}</td>
-          <td>${productList[i].category}</td>
-          <td>${productList[i].description}</td>
-          <td>
-            <button onclick="deleteProduct(${i})" class="btn btn-danger">Delete</button>
-          </td>
-          <td>
-            <button class="btn btn-warning">Update</button>
-          </td>
-        </tr>`;
-      document.getElementById("myTable").innerHTML = cartona;
+    if (productList[i].Name.toLowerCase().includes(term.toLocaleLowerCase())) {
+      // Create a new table row
+      const row = document.createElement("tr");
+
+      // Add table cells to the row
+      row.innerHTML = `
+        <td>${productList[i].Name}</td>
+        <td>${productList[i].price}</td>
+        <td>${productList[i].category}</td>
+        <td>${productList[i].description}</td>
+        <td><button onclick="deleteProduct(${i})" class="btn btn-danger">Delete</button></td>
+        <td><button class="btn btn-warning">Update</button></td>
+      `;
+
+      // Append the row to the tbody
+      tbody.appendChild(row);
     }
   }
+
+  // Wrap the table body in a div with the table-responsive class
+  const tableContainer = document.createElement("div");
+  tableContainer.classList.add("table-responsive");
+  tableContainer.appendChild(
+    tbody.parentNode.replaceChild(tbody, tableContainer)
+  );
+
+  // Append the div to the existing container
+  document.getElementById("input-con").appendChild(tableContainer);
 }
+
 //----------------------------------------------------------------
 //----------------------------------------------------------------
 //----------------------------------------------------------------

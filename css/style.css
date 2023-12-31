@@ -1,0 +1,19 @@
+/* Added: Custom style for fade and slide animations */
+.fade-slide {
+  animation: fadeSlide 0.5s ease-out;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* textarea not resizable */
+textarea {
+  resize: none;
+}
